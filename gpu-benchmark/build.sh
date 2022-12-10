@@ -35,12 +35,12 @@ docker build -f Dockerfile-$ARCH -t zql-gpu-benchmark .
 # rm -r usr_lib_aarch64
 # rm -r usr_local_cuda_lib64
 
-cd ..
+cd ../../docker
+bash launch-local-docker-hub.sh
 
-bash ../docker/launch-local-docker-hub.sh
 docker tag zql-gpu-benchmark:latest 127.0.0.1:5000/zql-gpu-benchmark:latest
 docker push 127.0.0.1:5000/zql-gpu-benchmark:latest
 
-bash ../docker/rm-none-docker-images.sh
+bash rm-none-docker-images.sh
 
 docker images | grep 127.0.0.1:5000/zql-gpu-benchmark
