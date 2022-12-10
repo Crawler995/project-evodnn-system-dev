@@ -1,0 +1,21 @@
+apiVersion: kubeshare.nthu/v1
+kind: SharePod
+metadata:
+  name: DEFINE_RUN_ID
+  # namespace: user-run
+  annotations:
+    "kubeshare/gpu_request": "DEFINE_GPU_ALLOC_REQ" # required if allocating GPU
+    "kubeshare/gpu_limit": "DEFINE_GPU_ALLOC_LIMIT" # required if allocating GPU
+    "kubeshare/gpu_mem": "4294967296" # 4Gi, in bytes
+    "kubeshare/GPUID": "queyu"
+spec:
+  nodeName: nvidia-desktop
+  containers:
+  - name: zql-gpu-benchmark
+    image: 127.0.0.1:5000/zql-gpu-benchmark:latest
+    command: ["python3", "-u", "gpu-benchmark.py", 
+              "--batch_size", "DEFINE_BS", 
+              "--stage", "DEFINE_STAGE", 
+              "--resource_allocation", "DEFINE_GPU_ALLOC", 
+              "--num_iterations", "DEFINE_NUM_ITERATIONS"]
+  

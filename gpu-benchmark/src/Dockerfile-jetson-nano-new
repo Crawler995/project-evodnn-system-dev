@@ -1,0 +1,21 @@
+# https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-pytorch
+
+# FROM nvcr.io/nvidia/l4t-pytorch:r32.6.1-pth1.9-py3
+FROM nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
+
+RUN mkdir /workspace
+COPY *.py /workspace/
+
+# RUN ls -lhR /usr/local/cuda/targets/aarch64-linux/lib/
+
+# COPY usr_lib_aarch64_tegra/* /usr/lib/aarch64-linux-gnu/tegra/
+# COPY usr_local_cuda_targets_lib/lib* /usr/local/cuda/targets/aarch64-linux/lib/
+# COPY usr_local_cuda_targets_lib/stubs /usr/local/cuda/targets/aarch64-linux/lib/
+# COPY usr_lib_aarch64/* /usr/lib/aarch64-linux-gnu/
+# COPY usr_local_cuda_lib64/* /usr/local/cuda/lib64/
+# RUN ls /usr/lib/aarch64-linux-gnu/tegra -lh | grep cuda
+
+# RUN pip3 install tqdm
+
+WORKDIR /workspace
+# ENTRYPOINT ["python3", "-u", "gpu-benchmark.py"]

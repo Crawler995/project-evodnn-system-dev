@@ -1,0 +1,1 @@
+kubectl get pod -A | grep node-daemon | awk '{print $2}' | xargs -I{} kubectl logs -f {} -c gemini-scheduler -n kube-system | grep "INFO"
