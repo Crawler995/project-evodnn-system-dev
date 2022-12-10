@@ -18,9 +18,9 @@ PWD := $(shell pwd)
 PREFIX ?= $(PWD)/..
 
 # SMS ?=  35 37 50 52 60 61 70
-# NOTE: Jetson device arch: 53 62 72 87
+# NOTE: Jetson device arch: 53 62 72 87 (87 is not supported in other devices except ORIN)
 # https://arnon.dk/tag/nvcc-arch/
-SMS ?= 53
+SMS ?= 53 62 72
 
 GENCODE_FLAGS += $(foreach sm,$(SMS),-gencode arch=compute_$(sm),code=sm_$(sm))
 
