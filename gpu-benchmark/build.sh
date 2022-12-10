@@ -37,7 +37,7 @@ docker build -f Dockerfile-$ARCH -t zql-gpu-benchmark .
 
 cd ..
 
-bash ../util/rm-none-docker-images.sh
+bash ../docker/rm-none-docker-images.sh
 docker tag zql-gpu-benchmark:latest 127.0.0.1:5000/zql-gpu-benchmark:latest
 docker push 127.0.0.1:5000/zql-gpu-benchmark:latest
 

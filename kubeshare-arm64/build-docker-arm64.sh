@@ -31,7 +31,7 @@ echo "[Note] Archived Gemini-v1.0 source code (with minor revision) is used in d
 
 sleep 5s
 
-bash ../util/launch_local_docker_hub.sh
+bash ../docker/launch_local_docker_hub.sh
 
 cd KubeShare-release-1.0
 cp Makefile-arm64 Makefile
@@ -50,7 +50,7 @@ done
 
 rm Makefile
 cd ..
-bash ../util/rm-none-docker-images.sh 
+bash ../docker/rm-none-docker-images.sh 
 
 echo "[Note] Built and pushed images:"
 docker images | grep 127.0.0.1:5000/kubeshare
