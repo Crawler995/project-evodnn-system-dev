@@ -31,7 +31,7 @@ echo "[Note] Archived Gemini-v1.0 source code (with minor revision) is used in d
 
 sleep 5s
 
-bash ../docker/launch_local_docker_hub.sh
+bash ../docker/launch-local-docker-hub.sh
 
 cd KubeShare-release-1.0
 cp Makefile-arm64 Makefile
